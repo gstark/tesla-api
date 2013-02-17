@@ -1,6 +1,7 @@
 require 'json'
 require 'httpclient'
 
+require "tesla-api/tesla_api"
 require "tesla-api/version"
 require "tesla-api/private_api"
 require "tesla-api/connection"

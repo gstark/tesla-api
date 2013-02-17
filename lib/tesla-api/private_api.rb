@@ -1,5 +1,5 @@
 module TeslaAPI
-  module PrivateAPI
+  module PrivateAPI # :nodoc:
     def login(email, password)
       params = { "user_session[email]"    => email,
                  "user_session[password]" => password }
@@ -122,7 +122,7 @@ module TeslaAPI
     end
 
     def check_logged_in!
-      raise NotLoggedIn unless logged_in?
+      raise Errors::NotLoggedIn unless logged_in?
     end
 
     def command_url(vehicle, command_name)
@@ -132,7 +132,7 @@ module TeslaAPI
     def command!(vehicle, command_name, options = {})
       _, json = get_json(command_url(vehicle, command_name), options)
 
-      json["result"] ? json["result"] : raise(APIFailure.new(json["reason"]))
+      json["result"] ? json["result"] : raise(Errors::APIFailure.new(json["reason"]))
     end
 
     def get_json(uri, options = {})
@@ -142,13 +142,13 @@ module TeslaAPI
 
       [response, JSON.parse(response.body)]
     rescue JSON::ParserError => e
-      raise InvalidJSON.new(e)
+      raise Errors::InvalidJSON.new(e)
     end
 
     def get(uri, options = {})
       response = @client.get(Connection::HOST + uri, options)
 
-      raise InvalidResponse.new(response) unless response.status_code == HTTP::Status::OK
+      raise Errors::InvalidResponse.new(response) unless response.status_code == HTTP::Status::OK
 
       response
     end

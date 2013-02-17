@@ -5,7 +5,7 @@ require 'tesla-api/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "tesla-api"
-  gem.version       = Tesla::Api::VERSION
+  gem.version       = TeslaAPI::VERSION
   gem.authors       = ["Gavin Stark"]
   gem.email         = ["gavin@gstark.com"]
   gem.description   = %q{Implements the Tesla Model S HTTP API}

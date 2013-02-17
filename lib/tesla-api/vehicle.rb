@@ -1,8 +1,46 @@
 module TeslaAPI
+  # Defines a Model S vehicle returned from the API
   class Vehicle < Data
+    # An array of Tesla defined option codes
     attr_reader :option_codes
 
-    def initialize(tesla, data)
+    ##
+    # :method: color
+    # Should be car color but is always nil
+
+    ##
+    # :method: display_name
+    # Only observed as nil
+
+    ##
+    # :method: id
+    # Vehicle ID used in other API calls
+
+    ##
+    # :method: user_id
+    # Logged in user ID
+
+    ##
+    # :method: vehicle_id
+    # Vehicle ID used in streaming API
+
+    ##
+    # :method: vin
+    # Vehicle Identification Number
+
+    ##
+    # :method: tokens
+    # API tokens (first is used for streaming API)
+
+    ##
+    # :method: online_state
+    # "online" if currently online with API (streaming?)
+
+    ##
+    # :method: option_codes
+    # Array of option codes defining how the vehicle is configured
+
+    def initialize(tesla, data) # :nodoc:
       @tesla = tesla
 
       ivar_from_data("color",        "color",        data)
@@ -17,14 +55,17 @@ module TeslaAPI
       @option_codes = data["option_codes"].split(",")
     end
 
+    # true if the vehicle allows mobile access
     def mobile_access?
       tesla.api_mobile_access?(self)
     end
 
+    # Returns the option codes as human readable string
     def option_code_descriptions
       option_codes.map { |code| codes_to_description.fetch(code, code) }.join(", ")
     end
 
+    # Returns the streaming data interface
     def stream
       tesla.stream(self)
     end
@@ -35,59 +76,74 @@ module TeslaAPI
     #
     #################################
 
+    # Wakes up the streaming API
     def wake_up!
       tesla.wake_up!(self)
     end
 
+    # Opens the charging port
     def open_charge_port!
       tesla.open_charge_port!(self)
     end
 
+    # Turns on the temperature conditioning
     def auto_conditioning_start!
       tesla.auto_conditioning_start!(self)
     end
 
+    # Turns off the temperature conditioning
     def auto_conditioning_stop!
       tesla.auto_conditioning_stop!(self)
     end
 
+    # Sets the temperature for both the driver and passenger
     def set_temperature!(driver_degrees_celcius, passenger_degrees_celcius)
       tesla.set_temperature!(self, driver_degrees_celcius, passenger_degrees_celcius)
     end
 
+    # Opens the panoramic roof
+    #
     # state may be "open", "close", "comfort", or "vent"
     def open_roof!(state)
       tesla.open_roof!(self, state)
     end
 
+    # Locks the vehicle doors
     def lock_door!
       tesla.lock_door!(self)
     end
 
+    # Unlocks the vehicle doors
     def unlock_door!
       tesla.unlock_door!(self)
     end
 
+    # Honks the vehicles horn
     def honk_horn!
       tesla.honk_horn!(self)
     end
 
+    # Flashes the vehicle lights
     def flash_lights!
       tesla.flash_lights!(self)
     end
 
+    # Stops the vehicle charging
     def charge_stop!
       tesla.charge_stop!(self)
     end
 
+    # Starts the vehicle charging
     def charge_start!
       tesla.charge_start!(self)
     end
 
+    # Charge the vehicle for maximum range
     def charge_max_range!
       tesla.charge_max_range!(self)
     end
 
+    # Charge the vehicle to standard range
     def charge_standard!
       tesla.charge_standard!(self)
     end
@@ -98,33 +154,38 @@ module TeslaAPI
     #
     #################################
 
+    # Returns the vehicles charge state
     def charge_state
       @charge_state ||= tesla.api_charge_state_for_vehicle(self)
     end
 
+    # Returns the vehicle climate state
     def climate_state
       @climate_state || tesla.api_climate_state_for_vehicle(self)
     end
 
+    # Returns the vehicle drive state
     def drive_state
       @drive_state ||= tesla.api_drive_state_for_vehicle(self)
     end
 
+    # Returns the vehicle gui settings
     def gui_settings
       @gui_settings ||= tesla.api_gui_settings_for_vehicle(self)
     end
 
+    # Returns the vehicle state
     def state
       @state ||= tesla.api_get_vehicle_state_for_vehicle(self)
     end
 
     private
 
-    def tesla
+    def tesla #:nodoc:
       @tesla
     end
 
-    def codes_to_description
+    def codes_to_description #:nodoc:
       {
         "MS01" => "base",
         "RENA" => "region_us",

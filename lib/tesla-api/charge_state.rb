@@ -1,6 +1,68 @@
 module TeslaAPI
+
+  # Defines the current charge state of the vehicle
   class ChargeState < Data
-    def initialize(data)
+    ##
+    # :method: charging_state
+    # Charging state ("Complete", "Charging")
+
+    ##
+    # :method charging_to_max?
+    # true if currently performing a range charge
+
+    ##
+    # :method: battery_range_miles
+    # Rated miles for the current charge
+
+    ##
+    # :method: estimated_battry_range_miles
+    # Range estimated from current driving
+
+    ##
+    # :method: ideal_battery_range_miles
+    # Ideal range for the current charge
+
+    ##
+    # :method: battery_percentage
+    # Percentage of battery charge
+
+    ##
+    # :method: battery_current_flow
+    # Current flowing into the battery
+
+    ##
+    # :method: charger_voltage
+    # Current voltage being used to charge battery
+
+    ##
+    # :method: charger_pilot_amperage
+    # Max amperage allowed by the charger
+
+    ##
+    # :method: charger_actual_amperage
+    # Current amperage being drawn into battery
+
+    ##
+    # :method: charger_power
+    # Kilowatt of charger (rounded down)
+
+    ##
+    # :method: hours_to_full_charge
+    # Hours remaining until the vehicle is fully charged
+
+    ##
+    # :method: charge_rate_miles_per_hour
+    # Miles of range being added per hour
+
+    ##
+    # :method: charge_port_open?
+    # true if the charge port is open
+
+    ##
+    # :method: supercharging?
+    # true if charging via a Tesla SuperCharger
+
+    def initialize(data) # :nodoc:
       ivar_from_data("charging_state",               "charging_state",         data)
       ivar_from_data("charging_to_max",              "charge_to_max_range",    data)
       ivar_from_data("battery_range_miles",          "battery_range",          data)
