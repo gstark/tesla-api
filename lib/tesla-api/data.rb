@@ -10,7 +10,7 @@ module TeslaAPI
       if has_query_ivar_method?(method_name)
         instance_variable_get(ivar_for_method_name(method_name))
       else
-        super(symbol, *args, &block)
+        super
       end
     end
 
