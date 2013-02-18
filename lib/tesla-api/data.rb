@@ -8,7 +8,7 @@ module TeslaAPI
   class Data
     def method_missing(method_name, *args, &block) # :nodoc:
       if has_query_ivar_method?(method_name)
-        instance_variable_get(instance_var)
+        instance_variable_get(ivar_for_method_name(method_name))
       else
         super(symbol, *args, &block)
       end
@@ -30,11 +30,14 @@ module TeslaAPI
 
     protected
 
+    def ivar_for_method_name(method_name) # :nodoc:
+      "@#{method_name.to_s.gsub(/\?$/,"")}".to_sym
+    end
+
     def has_query_ivar_method?(method_name) # :nodoc:
       method = method_name.to_s
-      instance_var = "@#{method.gsub(/\?$/,"")}".to_sym
 
-      method =~ /(.+)\?/ && instance_variables.include?(instance_var)
+      method =~ /(.+)\?/ && instance_variables.include?(ivar_for_method_name(method_name))
     end
 
     def inspect_ivars # :nodoc:

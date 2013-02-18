@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://portal.vn.teslamotors.com/login
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        foo==
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Location:
+      - https://portal.vn.teslamotors.com/
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      - user_credentials=;
+        path=/; expires=Sat, 18-May-2013 01:20:31 GMT; secure; HttpOnly
+      X-Request-Id:
+      - 7ce8d77dcd2e10cb81c0b3c98c9d4198
+      X-Runtime:
+      - '1.361939'
+      Date:
+      - Mon, 18 Feb 2013 01:20:31 GMT
+      X-Rack-Cache:
+      - invalidate, pass
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: <html><body>You are being <a href="https://portal.vn.teslamotors.com/">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:20:34 GMT
+- request:
+    method: get
+    uri: https://portal.vn.teslamotors.com/vehicles?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - user_credentials=;
+        _s_portal_session=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - ! '"cb4c586270e47aac1f5eba1873023ecd"'
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 6a1e7fa356d421956dd610fbbc1e40f7
+      X-Runtime:
+      - '0.022030'
+      Date:
+      - Mon, 18 Feb 2013 01:20:31 GMT
+      X-Rack-Cache:
+      - miss
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '[{"color":null,"display_name":null,"id":13,"option_codes":"MS01,RENA","user_id":21,"vehicle_id":1408,"vin":"5YJSA","tokens":["93b0e5b65b8a991b","d26a02e14e35b683"],"state":"online"}]'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:20:35 GMT
+recorded_with: VCR 2.4.0

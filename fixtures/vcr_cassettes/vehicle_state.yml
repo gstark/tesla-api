@@ -1,0 +1,134 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://portal.vn.teslamotors.com/login
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        foo==
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Location:
+      - https://portal.vn.teslamotors.com/
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      - user_credentials=;
+        path=/; expires=Sat, 18-May-2013 01:20:03 GMT; secure; HttpOnly
+      X-Request-Id:
+      - 2cd1412cd82bcf8f0eda88dbeb6eccd5
+      X-Runtime:
+      - '1.205157'
+      Date:
+      - Mon, 18 Feb 2013 01:20:03 GMT
+      X-Rack-Cache:
+      - invalidate, pass
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: <html><body>You are being <a href="https://portal.vn.teslamotors.com/">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:20:06 GMT
+- request:
+    method: get
+    uri: https://portal.vn.teslamotors.com/vehicles?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - user_credentials=;
+        _s_portal_session=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - ! '"cb4c586270e47aac1f5eba1873023ecd"'
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - ed2c1839a59935c3b983a1cff9bcc35d
+      X-Runtime:
+      - '0.169168'
+      Date:
+      - Mon, 18 Feb 2013 01:20:04 GMT
+      X-Rack-Cache:
+      - miss
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '[{"color":null,"display_name":null,"id":13,"option_codes":"MS01,RENA","user_id":21,"vehicle_id":1408,"vin":"5YJSA","tokens":["93b0e5b65b8a991b","d26a02e14e35b683"],"state":"online"}]'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:20:07 GMT
+- request:
+    method: get
+    uri: https://portal.vn.teslamotors.com/vehicles/13/command/vehicle_state?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - user_credentials=;
+        _s_portal_session=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - ! '"9e736ce6efc7e95c09431e5e797bf728"'
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 6dc1f77f6f8ef0dbae05db0fe2d4b0b9
+      X-Runtime:
+      - '3.737887'
+      Date:
+      - Mon, 18 Feb 2013 01:20:07 GMT
+      X-Rack-Cache:
+      - miss
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '{"df":false,"dr":false,"pf":false,"pr":false,"ft":false,"rt":false,"car_version":"1.19.42","locked":true,"sun_roof_installed":true,"sun_roof_state":"unknown","sun_roof_percent_open":0,"dark_rims":false,"wheel_type":"Base19","has_spoiler":false,"roof_color":"None","perf_config":"Base"}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:20:11 GMT
+recorded_with: VCR 2.4.0

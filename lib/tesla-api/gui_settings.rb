@@ -3,7 +3,7 @@ module TeslaAPI
   class GUISettings < Data
     ##
     # :method: gui_distance_units
-    # Units ("mi", "hr") for showing range
+    # Units ("mi/hr") for showing range
 
     ##
     # :method: gui_temperature_units
@@ -11,7 +11,7 @@ module TeslaAPI
 
     ##
     # :method: gui_charge_rate_units
-    # Units ("mi", "hr") for showing charge rage
+    # Units ("kW") for showing charge rage
 
     ##
     # :method: gui_range_display

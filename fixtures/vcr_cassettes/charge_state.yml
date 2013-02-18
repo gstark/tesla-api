@@ -1,0 +1,134 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://portal.vn.teslamotors.com/login
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        foo==
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Location:
+      - https://portal.vn.teslamotors.com/
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      - user_credentials=;
+        path=/; expires=Sat, 18-May-2013 01:17:09 GMT; secure; HttpOnly
+      X-Request-Id:
+      - 97a088fef9adf1f3c965078a83d09040
+      X-Runtime:
+      - '1.184748'
+      Date:
+      - Mon, 18 Feb 2013 01:17:09 GMT
+      X-Rack-Cache:
+      - invalidate, pass
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: <html><body>You are being <a href="https://portal.vn.teslamotors.com/">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:17:12 GMT
+- request:
+    method: get
+    uri: https://portal.vn.teslamotors.com/vehicles?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - user_credentials=;
+        _s_portal_session=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - ! '"cb4c586270e47aac1f5eba1873023ecd"'
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - 277fc8d63edb1757eba9da7085e47295
+      X-Runtime:
+      - '0.199410'
+      Date:
+      - Mon, 18 Feb 2013 01:17:09 GMT
+      X-Rack-Cache:
+      - miss
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '[{"color":null,"display_name":null,"id":13,"option_codes":"MS01,RENA","user_id":21,"vehicle_id":1408,"vin":"5YJSA","tokens":["93b0e5b65b8a991b","d26a02e14e35b683"],"state":"online"}]'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:17:12 GMT
+- request:
+    method: get
+    uri: https://portal.vn.teslamotors.com/vehicles/13/command/charge_state?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - user_credentials=;
+        _s_portal_session=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - ! '"2cd2d8f0cdfd9de62d0f7d5bf2eb45ee"'
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Set-Cookie:
+      - _s_portal_session=;
+        path=/; secure; HttpOnly
+      X-Request-Id:
+      - d87d2062f387a0cfd3ee346e18e3e19f
+      X-Runtime:
+      - '3.207695'
+      Date:
+      - Mon, 18 Feb 2013 01:17:13 GMT
+      X-Rack-Cache:
+      - miss
+      Server:
+      - thin 1.4.1 codename Chromeo
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '{"charging_state":"Disconnected","charge_to_max_range":false,"max_range_charge_counter":0,"fast_charger_present":false,"battery_range":177.38,"est_battery_range":143.96,"ideal_battery_range":204.15,"battery_level":70,"battery_current":-0.2,"charge_starting_range":null,"charge_starting_soc":null,"charger_voltage":0,"charger_pilot_current":0,"charger_actual_current":0,"charger_power":0,"time_to_full_charge":null,"charge_rate":-1.0,"charge_port_door_open":false}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2013 01:17:16 GMT
+recorded_with: VCR 2.4.0
