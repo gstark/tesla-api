@@ -5,42 +5,42 @@ module TeslaAPI
     attr_reader :option_codes
 
     ##
-    # :method: color
-    # Should be car color but is always nil
+    # @method color
+    # @return [String] Should be car color but is always nil
 
     ##
-    # :method: display_name
-    # Only observed as nil
+    # @method display_name
+    # @return [String] Only observed as nil
 
     ##
-    # :method: id
-    # Vehicle ID used in other API calls
+    # @method id
+    # @return Vehicle ID used in other API calls
 
     ##
-    # :method: user_id
-    # Logged in user ID
+    # @method user_id
+    # @return [Integer] Logged in user ID
 
     ##
-    # :method: vehicle_id
-    # Vehicle ID used in streaming API
+    # @method vehicle_id
+    # @return [Integer] Vehicle ID used in streaming API
 
     ##
-    # :method: vin
-    # Vehicle Identification Number
+    # @method vin
+    # @return [String] Vehicle Identification Number
 
     ##
-    # :method: tokens
-    # API tokens (first is used for streaming API)
+    # @method tokens
+    # @return [Array] API tokens (first is used for streaming API)
 
     ##
-    # :method: online_state
-    # "online" if currently online with API (streaming?)
+    # @method online_state
+    # @return [String] "online" if currently online with API (streaming?)
 
     ##
-    # :method: option_codes
-    # Array of option codes defining how the vehicle is configured
+    # @method option_codes
+    # @return [Array] option codes defining how the vehicle is configured
 
-    def initialize(tesla, data) # :nodoc:
+    def initialize(tesla, data)
       @tesla = tesla
 
       ivar_from_data("color",        "color",        data)
@@ -60,12 +60,12 @@ module TeslaAPI
       tesla.api_mobile_access?(self)
     end
 
-    # Returns the option codes as human readable string
+    # @return [String] the option codes as human readable string
     def option_code_descriptions
       option_codes.map { |code| codes_to_description.fetch(code, code) }.join(", ")
     end
 
-    # Returns the streaming data interface
+    # @return [Object] the streaming data interface
     def stream
       tesla.stream(self)
     end
@@ -154,38 +154,38 @@ module TeslaAPI
     #
     #################################
 
-    # Returns the vehicles charge state
+    # @return [ChargeState] the vehicle's charge state
     def charge_state
       @charge_state ||= tesla.api_charge_state_for_vehicle(self)
     end
 
-    # Returns the vehicle climate state
+    # @return [ClimateState] the vehicle's climate state
     def climate_state
       @climate_state || tesla.api_climate_state_for_vehicle(self)
     end
 
-    # Returns the vehicle drive state
+    # @return [DriveState] the vehicle's drive state
     def drive_state
       @drive_state ||= tesla.api_drive_state_for_vehicle(self)
     end
 
-    # Returns the vehicle gui settings
+    # @return [GUISettings] the vehicle's gui settings
     def gui_settings
       @gui_settings ||= tesla.api_gui_settings_for_vehicle(self)
     end
 
-    # Returns the vehicle state
+    # @return [VehicleState] the vehicle's state
     def state
       @state ||= tesla.api_get_vehicle_state_for_vehicle(self)
     end
 
     private
 
-    def tesla #:nodoc:
+    def tesla
       @tesla
     end
 
-    def codes_to_description #:nodoc:
+    def codes_to_description
       {
         "MS01" => "base",
         "RENA" => "region_us",

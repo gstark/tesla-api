@@ -5,26 +5,27 @@ module TeslaAPI
     attr_reader :gps_timestamp
 
     ##
-    # :method: shift_state
+    # @method shift_state
     # Unknown
 
     ##
-    # :method: speed
+    # @method speed
     # Vehicle speed (units?)
 
     ##
-    # :method: latitude
-    # Lattitude of vehicle
+    # @method latitude
+    # @return [Float] Lattitude of vehicle
 
     ##
-    # :method: longitude
-    # Longitude of vehicle
+    # @method longitude
+    # @return [Float] Longitude of vehicle
 
     ##
-    # :method: heading
-    # Compass heading (0 to 360) degrees
+    # @method heading
+    # @return [Integer] Compass heading (0 to 360) degrees
 
-    def initialize(data) # :nodoc:
+    # initialize
+    def initialize(data)
       ivar_from_data("shift_state", "shift_state", data)
       ivar_from_data("speed",       "speed",       data)
       ivar_from_data("latitude",    "latitude",    data)

@@ -6,11 +6,11 @@ module TeslaAPI
       # JSON parsing error details
       attr_reader :error
 
-      def initialize(error) # :nodoc:
+      def initialize(error)
         @error = error
       end
 
-      def to_s # :nodoc:
+      def to_s
         error.to_s
       end
     end
@@ -28,11 +28,11 @@ module TeslaAPI
       # Response object from httpclient
       attr_reader :response
 
-      def initialize(response) # :nodoc:
+      def initialize(response)
         @response = response
       end
 
-      def to_s # :nodoc:
+      def to_s
         "Invalid Response: #{response.inspect}"
       end
     end

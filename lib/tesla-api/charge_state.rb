@@ -3,66 +3,66 @@ module TeslaAPI
   # Defines the current charge state of the vehicle
   class ChargeState < Data
     ##
-    # :method: charging_state
-    # Charging state ("Complete", "Charging")
+    # @method charging_state
+    # @return Charging state ("Complete", "Charging")
 
     ##
-    # :method charging_to_max?
-    # true if currently performing a range charge
+    # @method charging_to_max?
+    # @return [Boolean] true if currently performing a range charge
 
     ##
-    # :method: battery_range_miles
-    # Rated miles for the current charge
+    # @method battery_range_miles
+    # @return [Float] Rated miles for the current charge
 
     ##
-    # :method: estimated_battry_range_miles
-    # Range estimated from current driving
+    # @method estimated_battry_range_miles
+    # @return [Float] Range estimated from current driving
 
     ##
-    # :method: ideal_battery_range_miles
-    # Ideal range for the current charge
+    # @method ideal_battery_range_miles
+    # @return [Float] Ideal range for the current charge
 
     ##
-    # :method: battery_percentage
-    # Percentage of battery charge
+    # @method battery_percentage
+    # @return [Integer] Percentage of battery charge
 
     ##
-    # :method: battery_current_flow
-    # Current flowing into the battery
+    # @method battery_current_flow
+    # @return [Float] Current flowing into the battery
 
     ##
-    # :method: charger_voltage
-    # Current voltage being used to charge battery
+    # @method charger_voltage
+    # @return [Float] Current voltage being used to charge battery
 
     ##
-    # :method: charger_pilot_amperage
-    # Max amperage allowed by the charger
+    # @method charger_pilot_amperage
+    # @return [Integer] Max amperage allowed by the charger
 
     ##
-    # :method: charger_actual_amperage
-    # Current amperage being drawn into battery
+    # @method charger_actual_amperage
+    # @return [Integer] Current amperage being drawn into battery
 
     ##
-    # :method: charger_power
-    # Kilowatt of charger (rounded down)
+    # @method charger_power
+    # @return [Integer] Kilowatt of charger (rounded down)
 
     ##
-    # :method: hours_to_full_charge
-    # Hours remaining until the vehicle is fully charged
+    # @method hours_to_full_charge
+    # @return [Float] Hours remaining until the vehicle is fully charged
 
     ##
-    # :method: charge_rate_miles_per_hour
-    # Miles of range being added per hour
+    # @method charge_rate_miles_per_hour
+    # @return [Float] Miles of range being added per hour
 
     ##
-    # :method: charge_port_open?
-    # true if the charge port is open
+    # @method charge_port_open?
+    # @return [Boolean] charge port open state
 
     ##
-    # :method: supercharging?
-    # true if charging via a Tesla SuperCharger
+    # @method supercharging?
+    # @return [Boolean] charging via a Tesla SuperCharger
 
-    def initialize(data) # :nodoc:
+    def initialize(data)
       ivar_from_data("charging_state",               "charging_state",         data)
       ivar_from_data("charging_to_max",              "charge_to_max_range",    data)
       ivar_from_data("battery_range_miles",          "battery_range",          data)

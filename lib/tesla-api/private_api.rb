@@ -1,5 +1,5 @@
 module TeslaAPI
-  module PrivateAPI # :nodoc:
+  module PrivateAPI
     def login(email, password)
       params = { "user_session[email]"    => email,
                  "user_session[password]" => password }
