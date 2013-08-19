@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
   gem.add_dependency 'httpclient', "~> 2.3.2"
+  gem.add_dependency 'thor'
   gem.add_development_dependency 'vcr', "~> 2.4.0"
   gem.add_development_dependency 'webmock', "~> 1.9.1"
 end
