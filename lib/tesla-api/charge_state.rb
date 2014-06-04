@@ -78,7 +78,6 @@ module TeslaAPI
     # @method supercharging?
     # @return [Boolean] charging via a Tesla SuperCharger
 
-    require 'pry'
     def initialize(data)
       ivar_from_data("charging_state",               "charging_state",         data)
       ivar_from_data("charging_to_max",              "charge_to_max_range",    data)
