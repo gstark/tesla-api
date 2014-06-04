@@ -57,6 +57,14 @@ class ChargeStateTest < Test::Unit::TestCase
     assert_equal 70, charge_state.battery_percentage
   end
 
+  def test_ideal_battery_range_kilometers
+    assert_equal 328.48, charge_state.ideal_battery_range_kilometers
+  end
+
+  def test_ideal_battery_range_miles
+    assert_equal 204.15, charge_state.ideal_battery_range_miles
+  end
+
   def test_estimated_battery_range_kilometers
     assert_equal 231.63, charge_state.estimated_battery_range_kilometers
   end

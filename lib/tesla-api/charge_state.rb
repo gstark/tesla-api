@@ -4,8 +4,7 @@ module TeslaAPI
   class ChargeState < Data
     MILE_IN_KM = 1.609
 
-    attr_reader :estimated_battery_range_kilometers
-    attr_reader :battery_range_kilometers
+    attr_reader :battery_range_kilometers, :estimated_battery_range_kilometers, :ideal_battery_range_kilometers
 
     ##
     # @method charging_state
