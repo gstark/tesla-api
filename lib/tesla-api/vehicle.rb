@@ -97,8 +97,8 @@ module TeslaAPI
     end
 
     # Sets the temperature for both the driver and passenger
-    def set_temperature!(driver_degrees_celcius, passenger_degrees_celcius)
-      tesla.set_temperature!(self, driver_degrees_celcius, passenger_degrees_celcius)
+    def set_temperature!(driver_degrees_celsius, passenger_degrees_celsius)
+      tesla.set_temperature!(self, driver_degrees_celsius, passenger_degrees_celsius)
     end
 
     # Opens the panoramic roof

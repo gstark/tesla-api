@@ -22,12 +22,12 @@ module TeslaAPI
 
     desc "inside_temp", "Gets the inside temperature"
     def inside_temp
-      display(vehicle.climate_state.inside_temp_celcius, "C")
+      display(vehicle.climate_state.inside_temp_celsius, "C")
     end
 
     desc "outside_temp", "Gets the outside temperature"
     def outside_temp
-      display(vehicle.climate_state.outside_temp_celcius.inspect, "C")
+      display(vehicle.climate_state.outside_temp_celsius.inspect, "C")
     end
 
     desc "lock", "Locks the car doors"
