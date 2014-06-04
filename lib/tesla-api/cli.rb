@@ -17,6 +17,7 @@ module TeslaAPI
     desc "range", "Gets the current rated range of the vehicle"
     def range
       display(vehicle.charge_state.battery_range_miles, "miles")
+      display(vehicle.charge_state.battery_range_kilometers, "kilometers")
     end
 
     desc "inside_temp", "Gets the inside temperature"
