@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tesla-api (0.0.3)
+    tesla-api (0.0.2)
       httpclient (~> 2.3.2)
       thor
 
