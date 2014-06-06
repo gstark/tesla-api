@@ -2,6 +2,10 @@ module TeslaAPI
 
   # Defines the current charge state of the vehicle
   class ChargeState < Data
+    MILE_IN_KM = 1.609344
+
+    attr_reader :battery_range_kilometers, :estimated_battery_range_kilometers, :ideal_battery_range_kilometers
+
     ##
     # @method charging_state
     # @return Charging state ("Complete", "Charging")
@@ -11,11 +15,19 @@ module TeslaAPI
     # @return [Boolean] true if currently performing a range charge
 
     ##
+    # @method battery_range_kilometers
+    # @return [Float] Rated kilometers for the current charge
+
+    ##
     # @method battery_range_miles
     # @return [Float] Rated miles for the current charge
 
     ##
-    # @method estimated_battry_range_miles
+    # @method estimated_battery_range_kilometers
+    # @return [Float] Range estimated from current driving
+
+    ##
+    # @method estimated_battery_range_miles
     # @return [Float] Range estimated from current driving
 
     ##
@@ -55,6 +67,10 @@ module TeslaAPI
     # @return [Float] Miles of range being added per hour
 
     ##
+    # @method charge_rate_kilometers_per_hour
+    # @return [Float] Kilometers of range being added per hour
+
+    ##
     # @method charge_port_open?
     # @return [Boolean] charge port open state
 
@@ -66,7 +82,7 @@ module TeslaAPI
       ivar_from_data("charging_state",               "charging_state",         data)
       ivar_from_data("charging_to_max",              "charge_to_max_range",    data)
       ivar_from_data("battery_range_miles",          "battery_range",          data)
-      ivar_from_data("estimated_battry_range_miles", "est_battery_range",      data)
+      ivar_from_data("estimated_battery_range_miles", "est_battery_range",      data)
       ivar_from_data("ideal_battery_range_miles",    "ideal_battery_range",    data)
       ivar_from_data("battery_percentage",           "battery_level",          data)
       ivar_from_data("battery_current_flow",         "battery_current",        data)
@@ -78,6 +94,10 @@ module TeslaAPI
       ivar_from_data("charge_rate_miles_per_hour",   "charge_rate",            data)
       ivar_from_data("charge_port_open",             "charge_port_door_open",  data)
       ivar_from_data("supercharging",                "fast_charger_present",   data)
+
+      @battery_range_kilometers = (battery_range_miles * MILE_IN_KM).round(2)
+      @estimated_battery_range_kilometers = (estimated_battery_range_miles * MILE_IN_KM).round(2)
+      @ideal_battery_range_kilometers = (ideal_battery_range_miles * MILE_IN_KM).round(2)
 
       @charging        = charging_state == "Charging"
       @charge_complete = charging_state == "Complete"

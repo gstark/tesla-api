@@ -13,20 +13,20 @@ class ClimateStateTest < Test::Unit::TestCase
     end
   end
 
-  def test_inside_temp_celcius
-    assert_equal nil, climate_state.inside_temp_celcius
+  def test_inside_temp_celsius
+    assert_equal nil, climate_state.inside_temp_celsius
   end
 
-  def test_outside_temp_celcius
-    assert_equal nil, climate_state.outside_temp_celcius
+  def test_outside_temp_celsius
+    assert_equal nil, climate_state.outside_temp_celsius
   end
 
-  def test_driver_temp_setting_celcius
-    assert_equal 23.1, climate_state.driver_temp_setting_celcius
+  def test_driver_temp_setting_celsius
+    assert_equal 23.1, climate_state.driver_temp_setting_celsius
   end
 
-  def test_passenger_temp_setting_celcius
-    assert_equal 23.1, climate_state.passenger_temp_setting_celcius
+  def test_passenger_temp_setting_celsius
+    assert_equal 23.1, climate_state.passenger_temp_setting_celsius
   end
 
   def test_fan_speed

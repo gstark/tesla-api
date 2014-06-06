@@ -3,20 +3,20 @@ module TeslaAPI
   #
   class ClimateState < Data
     ##
-    # @method inside_temp_celcius
-    # @return [Float] Temperature (celcius) inside the vehicle
+    # @method inside_temp_celsius
+    # @return [Float] Temperature (celsius) inside the vehicle
 
     ##
-    # @method outside_temp_celcius
-    # @return [Float] Temperature (celcius) outside the vehicle
+    # @method outside_temp_celsius
+    # @return [Float] Temperature (celsius) outside the vehicle
 
     ##
-    # @method driver_temp_setting_celcius
-    # @return [Float] Temperature (celcius) the driver has set
+    # @method driver_temp_setting_celsius
+    # @return [Float] Temperature (celsius) the driver has set
 
     ##
-    # @method passenger_temp_setting_celcius
-    # @return [Float] Temperature (celcius) the passenger has set
+    # @method passenger_temp_setting_celsius
+    # @return [Float] Temperature (celsius) the passenger has set
 
     ##
     # @method fan_speed
@@ -39,10 +39,10 @@ module TeslaAPI
     # @return [Boolean] if the fan is on
 
     def initialize(data)
-      ivar_from_data("inside_temp_celcius",            "inside_temp",            data)
-      ivar_from_data("outside_temp_celcius",           "outside_temp",           data)
-      ivar_from_data("driver_temp_setting_celcius",    "driver_temp_setting",    data)
-      ivar_from_data("passenger_temp_setting_celcius", "passenger_temp_setting", data)
+      ivar_from_data("inside_temp_celsius",            "inside_temp",            data)
+      ivar_from_data("outside_temp_celsius",           "outside_temp",           data)
+      ivar_from_data("driver_temp_setting_celsius",    "driver_temp_setting",    data)
+      ivar_from_data("passenger_temp_setting_celsius", "passenger_temp_setting", data)
       ivar_from_data("fan_speed",                      "fan_speed",              data)
 
       @auto_conditioning_on   = !!data["is_auto_conditioning_on"]

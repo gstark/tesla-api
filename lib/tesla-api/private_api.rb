@@ -22,9 +22,9 @@ module TeslaAPI
       end
     end
 
-    def set_temperature!(vehicle, driver_degrees_celcius, passenger_degrees_celcius)
-      command!(vehicle, "set_temps", :query => { :driver_degrees_celcius    => driver_degrees_celcius,
-                                                 :passenger_degrees_celcius => passenger_degrees_celcius })
+    def set_temperature!(vehicle, driver_degrees_celsius, passenger_degrees_celsius)
+      command!(vehicle, "set_temps", :query => { :driver_degrees_celsius    => driver_degrees_celsius,
+                                                 :passenger_degrees_celsius => passenger_degrees_celsius })
     end
 
     def open_roof!(vehicle, state)
