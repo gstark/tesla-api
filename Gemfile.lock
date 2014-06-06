@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tesla-api (0.0.2)
+    tesla-api (0.0.3)
       httpclient (~> 2.3.2)
       thor
 
@@ -14,7 +14,7 @@ GEM
     httpclient (2.3.4.1)
     rake (10.3.2)
     safe_yaml (0.9.5)
-    thor (0.18.1)
+    thor (0.19.1)
     vcr (2.4.0)
     webmock (1.9.3)
       addressable (>= 2.2.7)
