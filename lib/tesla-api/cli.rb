@@ -6,6 +6,7 @@ module TeslaAPI
 
     class_option :login
     class_option :password
+    option :miles, :type => :boolean, :desc => "Give ranges in miles instead of kilometers"
 
     def initialize(*args)
       super
@@ -14,10 +15,17 @@ module TeslaAPI
       @password = ENV["TESLA_API_PASSWORD"]
     end
 
-    desc "range", "Gets the current rated range of the vehicle"
+    desc "range", "Gets the current ranges of the vehicle"
     def range
-      display(vehicle.charge_state.battery_range_miles, "miles")
-      display(vehicle.charge_state.battery_range_kilometers, "kilometers")
+      if options[:miles]
+        puts "#{vehicle.charge_state.battery_range_miles} miles (rated)"
+        puts "#{vehicle.charge_state.estimated_battery_range_miles} miles (estimated)"
+        puts "#{vehicle.charge_state.ideal_battery_range_miles} miles (ideal)"
+      else
+        puts "#{vehicle.charge_state.battery_range_kilometers} kilometers (rated)"
+        puts "#{vehicle.charge_state.estimated_battery_range_kilometers} kilometers (estimated)"
+        puts "#{vehicle.charge_state.ideal_battery_range_kilometers} kilometers (ideal)"
+      end
     end
 
     desc "inside_temp", "Gets the inside temperature"
