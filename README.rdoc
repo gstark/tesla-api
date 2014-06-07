@@ -1,5 +1,7 @@
 = TeslaAPI
 
+<b>Build Status:</b> {<img src="https://travis-ci.org/gstark/tesla-api.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/gstark/tesla-api]
+
 == DESCRIPTION
 
 Allows access to the Tesla REST API for reading car telemetry and controlling basic
